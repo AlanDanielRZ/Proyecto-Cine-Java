@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e8f5e00-1bfe-456c-acc9-e7bb0fa3ba93">
+	<property name="ireport.zoom" value="2.357947691000002"/>
+	<property name="ireport.x" value="48"/>
+	<property name="ireport.y" value="140"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     puestos.`IDPUESTO` AS puestos_IDPUESTO,
+     puestos.`NOMBRE` AS puestos_NOMBRE
+FROM
+     `puestos` puestos]]>
+	</queryString>
+	<field name="puestos_IDPUESTO" class="java.lang.Integer"/>
+	<field name="puestos_NOMBRE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-21" y="-20" width="597" height="156" backcolor="#6600CC" uuid="42bbde27-c4dd-4a8c-ba86-b61dbedd52cc"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="75" width="341" height="34" forecolor="#FFFFFF" uuid="895a1d69-1a85-40c2-9994-89efddc042b5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Gill Sans Ultra Bold" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte de Puestos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-2" y="0" width="200" height="59" uuid="3250f245-afd5-4f65-b038-a3c5632bd7cc"/>
+				<imageExpression><![CDATA["C:\\Users\\hp\\Documents\\ESCUELA\\5°\\BASE DE DATOS\\PROYECTO CINEMA\\ProyectoCinemagic\\src\\reports\\logo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="432" y="0" width="113" height="110" uuid="648eca7d-3611-4d46-bdf5-5d2a33658661"/>
+				<imageExpression><![CDATA["C:\\Users\\hp\\Documents\\ESCUELA\\5°\\BASE DE DATOS\\PROYECTO CINEMA\\ProyectoCinemagic\\src\\reports\\job1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="bebe7aba-ec1c-4e87-937b-bd9f8cd2d564"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="277" height="15" forecolor="#6600CC" uuid="8d72ef77-4ef8-4f67-a947-fcdf76983caa"/>
+				<text><![CDATA[ID Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="277" y="0" width="277" height="15" forecolor="#6600CC" uuid="7442f776-d70b-44b7-9914-fa3238f1776f"/>
+				<text><![CDATA[Nombre del Cargo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="e55478c3-eb72-43cd-8326-c4a9fb331092"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="277" height="15" uuid="71ffc22e-a101-4128-9e24-f953b955ad48"/>
+					<textFieldExpression><![CDATA[$F{puestos_IDPUESTO}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="277" y="0" width="277" height="15" uuid="b44dc6ea-cddf-4a56-9f8d-69a8d210d577"/>
+					<textFieldExpression><![CDATA[$F{puestos_NOMBRE}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="d7722fd6-7011-41f3-85f8-7c6aa2d4ccb7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="75bddd74-06a6-40ea-add8-fabd7e656cae"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="df63e220-8ba5-4575-b50a-3b077dfe11fd"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="e0b5c371-8fc2-4060-9048-508dd29da63d"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="e31618c0-a576-4e25-8801-51de8f63ac48"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
